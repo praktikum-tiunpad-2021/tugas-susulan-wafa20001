@@ -1,9 +1,0 @@
-**/*.o
-.idea/
-.vscode/*
-!.vscode/tasks.json
-!.vscode/launch.json
-tugas
-tugas_test
-tugas.exe
-tugas_test.exe
