@@ -33,7 +33,7 @@ Stack<T> Top;
  */
 template <typename T>
 Stack<T> createStack(Stack<T> Top) {
-  // TODO: Implementasikan!
+  Top = nullptr;
   return nullptr;
 }
 
@@ -44,7 +44,9 @@ Stack<T> createStack(Stack<T> Top) {
  */
 template <typename T>
 void createElement(pointer<T>& newElement, T data) {
-  // TODO: Implementasikan!
+  newElement = new Node;
+  newElement->data = data;
+  newElement->next = nullptr;
 }
 
 /**
@@ -55,7 +57,7 @@ void createElement(pointer<T>& newElement, T data) {
  */
 template <typename T>
 T peek(Stack<T> Top) {
-  // TODO: Implementasikan!
+  return Top->data;
   return nullptr;
 }
 
@@ -67,8 +69,10 @@ T peek(Stack<T> Top) {
  */
 template <typename T>
 bool isEmpty(Stack<T> Top) {
-  // TODO: Implementasikan!
-  return false;
+  if(Top == nullptr){
+    return true;
+  } else 
+    return false;
 }
 
 /**
@@ -80,7 +84,13 @@ bool isEmpty(Stack<T> Top) {
  */
 template <typename T>
 Stack<T> push(Stack<T> Top, pointer<T> newElement) {
-  // TODO: Implementasikan!
+  std::cout << "push stack\n";
+  if(isEmpty(Top)){
+    Top = newElement;
+  } else {
+    newElement->next = Top;
+    Top = newElement;
+  }
   return Top;
 }
 
@@ -93,7 +103,17 @@ Stack<T> push(Stack<T> Top, pointer<T> newElement) {
  */
 template <typename T>
 Stack<T> pop(Stack<T>& Top, pointer<T> delElement) {
-  // TODO: Implementasikan!  
+  if(isEmpty(Top)){
+    std::cout << "Stack overflow\n";
+    delElement = nullptr;
+  } else if(Top->next = nullptr){
+    delElement = Top;
+    Top = nullptr;
+  } else {
+    delElement = Top;
+    Top = Top->next;
+    delElement->next = nullptr;
+  }
   return delElement;
 }
 
@@ -107,7 +127,15 @@ Stack<T> pop(Stack<T>& Top, pointer<T> delElement) {
 template <typename T>
 Stack<T> lastNode(Stack<T> Top) {
   pointer<T> pHelp = Top;
-  // TODO: Implementasikan!
+  if(isEmpty(Top)){
+    std::cout << "stack is empty.\n";
+  } else {
+    while(pHelp->next = nullptr){
+      do{
+        std::cout << pHelp->data;
+      }
+    }
+  }
   return pHelp;
 }
 
